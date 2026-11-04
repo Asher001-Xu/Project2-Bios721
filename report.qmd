@@ -1,0 +1,55 @@
+---
+title: "Daily Air Quality at Raleigh Durham International Airport"
+subtitle: "Exploratory analysis of 2018 to April 2020 monitoring data"
+author: "Tianyu Xu"
+format: docx
+---
+
+The EPA monitor at Raleigh–Durham International Airport recorded carbon monoxide (CO), fine particulate matter (PM2.5), and ozone. This report describes the daily concentrations and seasonal patterns as a first step toward studying air pollution and sickle cell disease in Durham County. It uses the supplied monitor data. [Project repository on GitHub](https://github.com/Asher001-Xu/Project2-Bios721)
+
+## Daily concentration ranges
+
+Within each file, duplicate records were removed before negative readings were set to zero. The remaining readings were averaged by date and pollutant using available values. Removing duplicates first keeps identical records from receiving extra weight, while clipping before averaging keeps negative readings from offsetting positive values.
+
+**Table 1. Daily concentration ranges in 2018**
+
+{{< include _results/table-2018.md >}}
+
+**Table 2. Daily concentration ranges in 2019**
+
+{{< include _results/table-2019.md >}}
+
+**Table 3. Daily concentration ranges from January to April 2020**
+
+{{< include _results/table-2020.md >}}
+
+*LC denotes local conditions. CO and ozone are daily maximum 8-hour concentrations, and PM2.5 is a daily mean concentration.*
+
+{{< pagebreak >}}
+
+## Monthly patterns
+
+**Figure 1. Pooled monthly means and 95% confidence intervals for CO and ozone**
+
+![](_results/co-ozone.png){width=6.3in fig-alt="Side-by-side monthly point and interval plots. CO peaks in winter, while ozone peaks in late spring and early summer."}
+
+Points pool all available daily values for each calendar month. Error bars show the mean ± 1.96 × SD/√n, with n equal to the number of nonmissing daily values for that pollutant. January through April draw on three years, and May through December draw on two. Separate vertical scales in ppm make the seasonal shape visible for both pollutants.
+
+{{< pagebreak >}}
+
+## Fine particulate matter
+
+**Figure 2. Monthly mean PM2.5 concentration by year**
+
+![](_results/pm25.png){width=6.3in fig-alt="Three lines show monthly PM2.5 means by year. The 2020 series begins below the other years and ends in April."}
+
+Connected points make it easy to follow month-to-month changes within each year and see that the 2020 series ends in April.
+
+## Interpretation
+
+Pooled CO was highest in December and lowest in May, while ozone peaked in June and was lowest in December. The January and February 2020 PM2.5 means were below their counterparts in both earlier years, yet the January–April 2020 maximum daily value of 31.200 µg/m³ exceeded the full-year maxima for 2018 and 2019. The shorter 2020 series limits comparisons across years to the months they share.
+
+## AI Use Statement
+
+OpenAI Codex drafted the R workflow and report. Codex checked its output by comparing the cleaned values and monthly summaries against an independent calculation from the raw CSVs.
+
